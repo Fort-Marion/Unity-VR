@@ -10,3 +10,4 @@ EditorBuildSettings:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: c16c55a332a72c6478e500604e83c837, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a7a99d0413f7098459dd27c57b8ff5e9, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 1cc58fcb4bd641b4bad0d487584a0494, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: f7ed6b82c2929dd44b8d90530e1aeca5, type: 2}

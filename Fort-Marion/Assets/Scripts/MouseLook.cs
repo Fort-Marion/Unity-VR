@@ -1,29 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
-    public Transform playerBody;
-    float xRotation = 0f;
-    // Start is called before the first frame update
+    public InputActionReference horizontalLook;
+    public InputActionReference verticalLook;
+    public float lookSpeed = 1f;
+    public Transform cameraTransform;
+    float pitch;
+    float yaw;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        horizontalLook.action.performed += HandleHorizontalLookChange;
+        verticalLook.action.performed += HandleVerticalLookChange;
     }
 
-    // Update is called once per frame
-    void Update()
+    void HandleHorizontalLookChange(InputAction.CallbackContext obj)
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        yaw += obj.ReadValue<float>();
+        transform.localRotation = Quaternion.AngleAxis(yaw * lookSpeed, Vector3.up);
+    }
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-        playerBody.Rotate(Vector3.up * mouseX);
+    void HandleVerticalLookChange(InputAction.CallbackContext obj)
+    {
+        pitch -= obj.ReadValue<float>();
+        cameraTransform.localRotation = Quaternion.AngleAxis(pitch * lookSpeed, Vector3.right);
     }
 }
