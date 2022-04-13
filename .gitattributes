@@ -136,3 +136,4 @@
 *.asmdef filter=lfs diff=lfs merge=lfs -text
 *.preset filter=lfs diff=lfs merge=lfs -text
 *.docx filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
