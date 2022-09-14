@@ -6762,3 +6762,5 @@
 /VR[[:space:]]Development/Library/SourceAssetDB filter=lfs diff=lfs merge=lfs -text
 /VR[[:space:]]Development/Library/SourceAssetDB-lock filter=lfs diff=lfs merge=lfs -text
 /VR[[:space:]]Development/Library/expandedItems filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.controller filter=lfs diff=lfs merge=lfs -text
