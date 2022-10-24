@@ -14,8 +14,8 @@ public class DetectController : MonoBehaviour
     void Awake()
     {
         XRDeviceSimulator.SetActive(MockHMDOn);
-
-        if(!XRSettings.isDeviceActive || !MockHMDOn)
+        
+        if(!XRSettings.isDeviceActive && !MockHMDOn)
         {
             Debug.Log("No Headset");
             XRRig.SetActive(false);
