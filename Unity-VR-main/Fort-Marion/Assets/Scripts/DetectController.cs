@@ -8,6 +8,7 @@ public class DetectController : MonoBehaviour
     public GameObject XRRig;
     public GameObject NormRig;
     public GameObject XRDeviceSimulator;
+    public GameObject Player3D;
     public bool MockHMDOn;
 
     // Start is called before the first frame update
@@ -20,12 +21,14 @@ public class DetectController : MonoBehaviour
             Debug.Log("No Headset");
             XRRig.SetActive(false);
             NormRig.SetActive(true);
+            Player3D.SetActive(true);
         } 
         else
         {
             Debug.Log("headset detected");
             XRRig.SetActive(true);
             NormRig.SetActive(false);
+            Player3D.SetActive(false);
         }
         
     }
