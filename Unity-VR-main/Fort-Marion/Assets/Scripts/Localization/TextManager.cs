@@ -20,6 +20,11 @@ namespace FortMarion.Localization
         {
             return _gameTexts.TryGetValue(id, out var str) ? str : null;
         }
+        
+        public string GetTextOrDefault(string id, string defaultValue)
+        {
+            return _gameTexts.TryGetValue(id, out var str) ? str : defaultValue;
+        }
 
         public void AddText(string id, string value)
         {

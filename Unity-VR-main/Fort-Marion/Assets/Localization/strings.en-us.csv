@@ -1,6 +1,9 @@
-main_menu_btn_start,Explore Fort
-main_menu_btn_options,Options
-main_menu_btn_exit,Exit
-options_menu_graphics,Graphics
-options_menu_audio,Audio
-options_menu_gameplay,Gameplay
+main_menu_btn_start,Explore<br>Fort
+main_menu_btn_tour,Tour<br>Fort
+main_menu_btn_settings,Settings
+main_menu_btn_exit,Quit
+settings_menu_btn_graphics,Graphics
+settings_menu_btn_audio,Audio
+settings_menu_btn_gameplay,Gameplay
+settings_menu_btn_cancel,Cancel
+settings_menu_btn_confirm,OK

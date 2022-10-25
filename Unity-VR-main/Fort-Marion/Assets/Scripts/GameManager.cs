@@ -2,37 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using FortMarion.Localization;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace FortMarion
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance;
+        public static GameManager _instance;
+
+        public static GameManager Instance
+        {
+            get
+            {
+                if(_instance == null)
+                    Debug.LogError("GameManager Instance is Null!");
+                return _instance;
+            }
+        }
         public TextManager TextManager;
 
         private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            _instance = this;
         }
-
-
-        // Start is called before the first frame update
+        
         void Start()
         {
             TextManager = new TextManager();
             TextManager.LoadGameTexts();
         }
 
-        // Update is called once per frame
         void Update()
         {
         }
