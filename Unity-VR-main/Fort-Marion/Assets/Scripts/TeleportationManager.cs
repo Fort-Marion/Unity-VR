@@ -16,15 +16,15 @@ public class TeleportationManager : MonoBehaviour
     {
         rayInteractor.enabled = false;
 
-        var activate = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleport Mode Activate");
+        var activate = actionAsset.FindActionMap("XRI LeftHand Locomotion").FindAction("Teleport Mode Activate");
         activate.Enable();
         activate.performed += OnTeleportActivate;
 
-        var cancel = actionAsset.FindActionMap("XRI LeftHand").FindAction("Teleport Mode Cancel");
+        var cancel = actionAsset.FindActionMap("XRI LeftHand Locomotion").FindAction("Teleport Mode Cancel");
         cancel.Enable();
         cancel.performed += OnTeleportCancel;
 
-        _thumbstick = actionAsset.FindActionMap("XRI LeftHand").FindAction("Move");
+        _thumbstick = actionAsset.FindActionMap("XRI LeftHand Locomotion").FindAction("Move");
         _thumbstick.Enable();
     }
 
@@ -46,7 +46,6 @@ public class TeleportationManager : MonoBehaviour
         TeleportRequest request = new TeleportRequest()
         {
             destinationPosition = hit.point,
-            // destinationRotation = ?,
         };
 
         provider.QueueTeleportRequest(request);
