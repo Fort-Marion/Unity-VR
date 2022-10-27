@@ -15,8 +15,8 @@ namespace FortMarion.Cannon
         public GameObject BarrelEnd;
 
         public bool _isRecentShot;
-        
-        private Vector3? Pos { get; set; } = null;
+        private static readonly int Rollback = Animator.StringToHash("Rollback");
+        private static readonly int Rollforward = Animator.StringToHash("Rollforward");
 
         private void Awake()
         {
@@ -31,15 +31,21 @@ namespace FortMarion.Cannon
 
         private IEnumerator Waiter()
         {
-            yield return new WaitForSeconds(3);
-            var position = BarrelEnd.transform.position;
-            var cannonball = Instantiate(CannonballPrefab, position, Quaternion.identity);
-            var rigid = cannonball.GetComponent<Rigidbody>();
-            Pos = cannonball.transform.position;
-            _isRecentShot = true;
-            cannonball.GetComponent<Rigidbody>().AddForce(25*Armature.up, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(-200*transform.forward, ForceMode.Impulse);
-            Instantiate(ExplosionEffect, position, Quaternion.identity);
+            while (true)
+            {
+                yield return new WaitForSeconds(3);
+                _isRecentShot = true;
+                var position = BarrelEnd.transform.position;
+                var animator = GetComponent<Animator>();
+                var cannonball = Instantiate(CannonballPrefab, position, Quaternion.identity);
+                cannonball.GetComponent<Rigidbody>().AddForce(25*Armature.up, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(-200*transform.forward, ForceMode.Impulse);
+                Instantiate(ExplosionEffect, position, Quaternion.identity);
+                animator.SetTrigger(Rollback);
+                yield return new WaitForSeconds(3);
+                animator.SetTrigger(Rollforward);
+                _isRecentShot = false; 
+            }
         }
 
         private void Update()
