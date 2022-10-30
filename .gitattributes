@@ -6784,3 +6784,5 @@
 *.mask filter=lfs diff=lfs merge=lfs -text
 *.renderTexture filter=lfs diff=lfs merge=lfs -text
 *.avi filter=lfs diff=lfs merge=lfs -text
+*.brush filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
