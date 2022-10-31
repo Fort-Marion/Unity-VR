@@ -1,3 +1,78 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:48ab7bcd373f6d4e91f9ae93333a5007f0ae313382a73edbb61537f3d18c8fd7
-size 2360
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UniStorm Skybox
+  m_Shader: {fileID: 4800000, guid: 4398035ce0219f14195fc79f2eef5abf, type: 3}
+  m_ShaderKeywords: SKYBOX_SUNDISK_HQ SKYBOX_SUNDISK_SIMPLE SKYBOX_SUNDISK_SKYBOX_SUNDISK_HQ
+    _SUNDISK_HQ _SunDisk_SIMPLE
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MoonTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Stars:
+        m_Texture: {fileID: 8900000, guid: dbdcc696c2cb68c47b07029c1761fbdd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AtmosphereThickness: 1.2825533
+    - _Exposure: 1.3
+    - _SunBrightness: 1.5
+    - _SunDisk: 2
+    - _SunSize: 0.04
+    m_Colors:
+    - _GroundColor: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    - _NightSkyTint: {r: 0.62564045, g: 0.6274153, b: 0.6308081, a: 1}
+    - _SkyTint: {r: 0.9585955, g: 0.5671974, b: 0.06869385, a: 1}
+    - _SunColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_BuildTextureStacks: []
