@@ -1,3 +1,50 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6eb0d1c9c072b6a8a0845a727a87fa7f93799bf6c51198985d59660f9168a775
-size 1198
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(Animator))]
+public class Hand : MonoBehaviour
+{
+    public float speed;
+    Animator animator;
+    private float gripTarget;
+    private float triggerTarget;
+    private float gripCurrent;
+    private float triggerCurrent;
+    private string animatorGripParam = "Grip";
+    private string animatorTriggerParam = "Trigger";
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        AnimateHand();
+    }
+
+    internal void SetGrip(float v)
+    {
+        gripTarget = v;
+    }
+
+
+    internal void SetTrigger(float v)
+    {
+        triggerTarget = v;
+    }
+    void AnimateHand()
+    {
+        if (gripCurrent != gripTarget)
+        {
+            gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * speed);
+            animator.SetFloat(animatorGripParam, gripCurrent);
+        }
+        if (triggerCurrent != triggerTarget)
+        {
+            triggerCurrent = Mathf.MoveTowards(triggerCurrent, triggerTarget, Time.deltaTime * speed);
+            animator.SetFloat(animatorTriggerParam, triggerCurrent);
+        }
+    }
+
+}

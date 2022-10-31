@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc45b753a78ddb08802d44e22750c789ca889a1c1055bab76721d8c85441d1fc
-size 681
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace UniStorm.Example
+{
+    public class UniStormUIDisplay : MonoBehaviour
+    {
+
+        public Text UniStormTime;
+        public Text UniStormTemperature;
+        public RawImage UniStormWeatherIcon;
+
+        void Update()
+        {
+            UniStormTime.text = UniStormSystem.Instance.Hour.ToString() + ":" + UniStormSystem.Instance.Minute.ToString("00");
+            UniStormTemperature.text = UniStormSystem.Instance.Temperature.ToString() + "°";
+            UniStormWeatherIcon.texture = UniStormSystem.Instance.CurrentWeatherType.WeatherIcon;
+        }
+    }
+}

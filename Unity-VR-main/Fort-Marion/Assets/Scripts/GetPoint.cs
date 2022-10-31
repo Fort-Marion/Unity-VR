@@ -1,3 +1,59 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d9b269b712b271ff9a04274a165bbeac3f54bb4c09e5ae763161e0a0d4c9913
-size 1290
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class GetPoint : MonoBehaviour
+{
+
+    public static GetPoint Instance;
+
+    public float Range;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    bool RandomPoint(Vector3 center, float range, out Vector3 result)
+    {
+
+        for (int i = 0; i < 30; i++)
+        {
+            Vector3 randomPoint = center + Random.insideUnitSphere * range;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            {
+                result = hit.position;
+                return true;
+            }
+        }
+
+        result = Vector3.zero;
+
+        return false;
+    }
+
+    public Vector3 GetRandomPoint(Transform point = null, float radius = 0)
+    {
+        Vector3 _point;
+
+        if (RandomPoint(point == null ? transform.position : point.position, radius == 0 ? Range : radius, out _point))
+        {
+            Debug.DrawRay(_point, Vector3.up, Color.black, 1);
+
+            return _point;
+        }
+
+        return point == null ? Vector3.zero : point.position;
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos ()
+    {
+        Gizmos.DrawWireSphere (transform.position, Range);
+    }
+
+#endif
+
+}

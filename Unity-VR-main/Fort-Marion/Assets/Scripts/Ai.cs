@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4969b7873de4996b9970e2b720429136df3d29e0fbf077237b72439991191063
-size 585
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class Ai : MonoBehaviour
+{
+    private NavMeshAgent agent;
+
+    public float radius;
+
+    private void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Update()
+    {
+        if (!agent.hasPath)
+        {
+            agent.SetDestination(GetPoint.Instance.GetRandomPoint(transform, radius));
+        }
+    }
+
+#if UNITY_EDITOR
+
+    private void OnDrawGizmos ()
+    {
+        Gizmos.DrawWireSphere (transform.position, radius);
+    }
+
+#endif
+}

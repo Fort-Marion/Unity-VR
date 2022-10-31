@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dac8c1fe38b8ecdc2eaae4f54077c92260a03777fc8d3ab8e03c744852364814
-size 801
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using FortMarion.Localization;
+using UnityEngine;
+
+namespace FortMarion
+{
+    public class GameManager : MonoBehaviour
+    {
+        private static GameManager _instance;
+
+        public static GameManager Instance
+        {
+            get
+            {
+                if(_instance == null)
+                    Debug.LogError("GameManager Instance is Null!");
+                return _instance;
+            }
+        }
+        public TextManager TextManager;
+
+        private void Awake()
+        {
+            _instance = this;
+        }
+        
+        void Start()
+        {
+            TextManager = new TextManager();
+            TextManager.LoadGameTexts();
+        }
+
+        void Update()
+        {
+        }
+    }
+}

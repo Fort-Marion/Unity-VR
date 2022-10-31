@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eff5f699935e11c6a6e66bc3c8a0524f31e97f6c7ce0f710fb271c3cd4500165
-size 1386
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace UniStorm.Utility
+{
+    public class FadeParticleEffect : MonoBehaviour
+    {
+        public AnimationCurve ParticleCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+        public float FadeMultipler = 1;
+        ParticleSystem ParticleSource;
+        float EmissionAmount;
+        float Timer;
+
+        void OnEnable()
+        {
+            if (ParticleSource != null)
+            {
+                ParticleSystem.EmissionModule CurrentEmission = ParticleSource.emission;
+                CurrentEmission.rateOverTime = new ParticleSystem.MinMaxCurve(EmissionAmount);
+                Timer = 0;
+            }
+        }
+
+        void Start()
+        {
+            if (GetComponent<ParticleSystem>() != null)
+            {
+                ParticleSource = GetComponent<ParticleSystem>();
+                EmissionAmount = ParticleSource.emission.rateOverTime.constant;
+            }
+            else
+            {
+                GetComponent<FadeParticleEffect>().enabled = false;
+            }
+        }
+
+        void Update()
+        {
+            Timer += Time.deltaTime;
+            ParticleSystem.EmissionModule CurrentEmission = ParticleSource.emission;
+            CurrentEmission.rateOverTime = new ParticleSystem.MinMaxCurve(ParticleCurve.Evaluate(Timer * FadeMultipler));
+        }
+    }
+}

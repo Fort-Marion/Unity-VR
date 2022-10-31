@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af8185386fd49b8df9813f7e1a2910de03db2e76e07327316d2529489d9dabf7
-size 634
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UniStorm;
+
+namespace UniStorm.Example
+{
+    public class LightningEvent : MonoBehaviour
+    {
+        void Start()
+        {
+            UniStormSystem.Instance.OnLightningStrikeObjectEvent.AddListener(() => TestLightningEvent());
+        }
+
+        //Debug logs the name of the successfully struck object 
+        void TestLightningEvent()
+        {
+            if (UniStormSystem.Instance.LightningStruckObject != null)
+            {
+                Debug.Log(UniStormSystem.Instance.LightningStruckObject.name);
+            }
+        }
+    }
+}

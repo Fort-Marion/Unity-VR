@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6ae6a4f8f5d6c684d44333da309ed185d7eebf3cb5a983bcdb2813c92f73990
-size 593
+using System.Collections;
+using System.Collections.Generic;
+using FortMarion;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class AudioSettingsMenu : MonoBehaviour
+{
+    [SerializeField] private Slider masterVolumeSlider;
+    void Start()
+    {
+        var textManager = GameManager.Instance.TextManager;
+        masterVolumeSlider.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("audio_menu_slider_mastervolume", "Master Volume");
+    }
+    
+    public void MasterVolumeSlider_Updated(float val)
+    {
+        AudioListener.volume = val;
+    }
+}

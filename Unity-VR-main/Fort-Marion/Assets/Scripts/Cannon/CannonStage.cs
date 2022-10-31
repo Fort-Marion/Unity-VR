@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1160ce8f775e4472be0ab3ae2d3afc92dacc3fef70d65d5379c6bee65da4e9a5
-size 273
+﻿// ReSharper disable InconsistentNaming
+namespace FortMarion.Cannon
+{
+    public enum CannonStage
+    {
+        Worm_Wadding = 1,
+        Sponge_Sparks = 2,
+        Load_Cartridge = 3,
+        Rammer_Push = 4,
+        Powder_Prime = 5,
+        Linstock_Fire = 6,
+    }
+}

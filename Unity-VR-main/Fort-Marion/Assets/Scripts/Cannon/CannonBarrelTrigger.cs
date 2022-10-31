@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:db5eb6383e16ee418ae1594d449b271f6423f2e27cf459503b328d3a7e61fb70
-size 728
+using System.Collections;
+using System.Collections.Generic;
+using FortMarion.Cannon;
+using UnityEngine;
+
+public class CannonBarrelTrigger : MonoBehaviour
+{
+    private CannonComponent cannonComponent;
+
+    private void Awake()
+    {
+        cannonComponent = gameObject.GetComponentInParent<CannonComponent>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag($"Cannonball_6lb")) return;
+        if (cannonComponent._isRecentShot || cannonComponent.Stage != CannonStage.Load_Cartridge) return; 
+        other.gameObject.SetActive(false);
+        LoadCartridge();
+
+    }
+
+    public void LoadCartridge()
+    {
+        cannonComponent.DemoStageAction(); // TODO Remove demo stuff
+    }
+}

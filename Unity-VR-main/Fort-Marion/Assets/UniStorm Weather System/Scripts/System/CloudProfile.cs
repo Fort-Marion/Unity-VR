@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:73c504a3a71f936dd5e05499de84b0e2019997c1ff815461c66e5ced5703a44b
-size 576
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace UniStorm
+{
+    [CreateAssetMenu(fileName = "New Cloud Profile", menuName = "UniStorm/New Cloud Profile")]
+    public class CloudProfile : ScriptableObject
+    {
+        public string ProfileName = "New Cloud Profile Name";
+        public float EdgeSoftness = 0.067f;
+        public float BaseSoftness = 0.13f;
+        public float DetailStrength = 0.114f;
+        public float Density = 0.9f;
+        public float CoverageBias = 0.0175f;
+        public int DetailScale = 730;
+    }
+}

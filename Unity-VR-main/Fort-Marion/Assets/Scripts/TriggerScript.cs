@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a51768bb33e470d1bd969fdce5f1d7dfc33796fba807268be38562d25600a99b
-size 607
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public class TriggerScript : MonoBehaviour
+{
+    [SerializeField] private GameObject objectToBeSpawned;
+
+    private void OnTriggerEnter(Collider Spawner)
+    {
+        objectToBeSpawned.SetActive(true);
+        //Instantiate(objectToBeSpawned, spawnpoint.position, Quaternion.identity);
+    }
+    private void OnTriggerExit(Collider Spawner)
+    {
+        objectToBeSpawned.SetActive(false);
+        //Instantiate(objectToBeSpawned, spawnpoint.position, Quaternion.identity);
+    }
+}

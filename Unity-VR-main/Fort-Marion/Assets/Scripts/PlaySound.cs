@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d4c65f6297a19f3fed9223ef2c99b9c30a455bf68f698634b2904ce1f90eb7ad
-size 457
+using UnityEngine;
+using System.Collections;
+
+public class PlaySound : MonoBehaviour
+{
+
+    public AudioClip SoundToPlay;
+    public float Volume;
+    AudioSource audio;
+    public bool alreadyPlayed = false;
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
+    void OnTriggerEnter()
+    {
+        if (!alreadyPlayed)
+        {
+            audio.PlayOneShot(SoundToPlay, Volume);
+            alreadyPlayed = true;
+        }
+    }
+}

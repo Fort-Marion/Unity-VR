@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46a4ab00ce465abd4a21994662c9a19c7c27f07cf16d00f63ccfb23b664adaba
-size 912
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR;
+
+public class DetectController : MonoBehaviour
+{
+    public GameObject XRRig;
+    public GameObject NormRig;
+    public GameObject XRDeviceSimulator;
+    public GameObject Player3D;
+    public bool MockHMDOn;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        XRDeviceSimulator.SetActive(MockHMDOn);
+        
+        if(!XRSettings.isDeviceActive && !MockHMDOn)
+        {
+            Debug.Log("No Headset");
+            XRRig.SetActive(false);
+            NormRig.SetActive(true);
+            Player3D.SetActive(true);
+        } 
+        else
+        {
+            Debug.Log("headset detected");
+            XRRig.SetActive(true);
+            NormRig.SetActive(false);
+            Player3D.SetActive(false);
+        }
+        
+    }
+
+    void Update()
+    {
+        
+    }
+
+}

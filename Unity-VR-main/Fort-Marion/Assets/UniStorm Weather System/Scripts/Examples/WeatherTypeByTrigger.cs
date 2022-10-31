@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a237a162e1528aa2a5f35747a05015719b27aa1e2618a0b31957a1cce243e2b
-size 462
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace UniStorm.Example
+{
+    public class WeatherTypeByTrigger : MonoBehaviour
+    {
+        public WeatherType m_WeatherType;
+        public string TriggerTag = "Player";
+
+        void OnTriggerEnter(Collider C)
+        {
+            if (C.tag == TriggerTag)
+            {
+                UniStormSystem.Instance.ChangeWeather(m_WeatherType);
+            }
+        }
+    }
+}

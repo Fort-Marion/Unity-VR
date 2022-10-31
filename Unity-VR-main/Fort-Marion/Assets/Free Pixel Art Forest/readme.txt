@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8f1ea1be24fe97a67071d00bf6f13858c5e57e8cc154d3e56a2fc59de96a33f
-size 454
+ Artwork created by Eder Muniz
+
+Free Pixel Art Forest
+
+PNG, PSD Formats
+
+Thank you for buy my Fre Pixel Art Forest!
+Feel free to send me messages or leave a comment if you have questions or need more info.
+
+
+ Contents
+
+PNG Folder
+Contains all the layers ready to use in PNG Format
+
+PREVIEWS
+Flattened HD Res example PNG and gif files
+
+PSD
+Working Photoshop format files for editing.
+
+You may also like
+Another assets available in store
+
+
+
+Changelog:
+
+...

@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b09bee9074546cea9bb33481c6cab0e281221fd6b4d5ebacc9a40854d67918a
-size 702
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveBackground : MonoBehaviour {
+
+
+
+	public float speed;
+	private float x;
+	public float PontoDeDestino;
+	public float PontoOriginal;
+
+
+
+
+	// Use this for initialization
+	void Start () {
+		//PontoOriginal = transform.position.x;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+
+		x = transform.position.x;
+		x += speed * Time.deltaTime;
+		transform.position = new Vector3 (x, transform.position.y, transform.position.z);
+
+
+
+		if (x <= PontoDeDestino){
+
+			Debug.Log ("hhhh");
+			x = PontoOriginal;
+			transform.position = new Vector3 (x, transform.position.y, transform.position.z);
+		}
+
+
+	}
+}

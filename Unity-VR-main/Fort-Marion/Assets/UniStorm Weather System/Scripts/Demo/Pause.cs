@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f836339a972baff9dcc1ac7d3fd95b03e9bc66501c5fd277f7401a45772785d0
-size 784
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace UniStorm.CharacterController
+{
+    public class Pause : MonoBehaviour
+    {
+        bool Paused = false;
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Paused = !Paused;
+            }
+
+            if (Paused)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                GetComponent<UniStormMouseLook>().enabled = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                GetComponent<UniStormMouseLook>().enabled = true;
+            }
+        }
+    }
+}

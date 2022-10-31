@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e236035eba598d714e816194b6a8b5903108c38baec9e813637a6ab4f341ebe7
-size 244
+fileFormatVersion: 2
+guid: fc0b06919c72c1645a3fcd650fcde06f
+labels:
+- car
+- cars
+- lowpoly
+- lod
+- lods
+- pack
+folderAsset: yes
+timeCreated: 1494348511
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

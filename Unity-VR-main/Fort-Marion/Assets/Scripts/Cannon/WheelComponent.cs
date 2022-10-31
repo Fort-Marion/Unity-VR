@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:edb1fe19843a6e48cb270d5f375263b5f396b9eaa0025dd1830aa91e8956d9ed
-size 445
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WheelComponent : MonoBehaviour
+{
+
+    private WheelCollider _wheelCollider;
+    
+    void Start()
+    {
+        _wheelCollider = GetComponent<WheelCollider>();
+    }
+
+    private void FixedUpdate()
+    {
+        _wheelCollider.motorTorque = 0.00001f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

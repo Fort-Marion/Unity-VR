@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:133b15f3c00fc5bbd9600c8672c54dfb1464213b7c071500bafc5ef4d83deeb1
-size 236
+fileFormatVersion: 2
+guid: e102e517e297a6747895c80004b1cb3b
+labels:
+- Ground
+- Nature
+- Pattern
+- Stone
+- Terrain
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

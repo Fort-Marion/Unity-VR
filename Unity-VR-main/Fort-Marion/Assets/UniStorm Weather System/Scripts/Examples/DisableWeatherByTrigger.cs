@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:881623dbc4b9211b2749ca60ac836fe583fdf39bbb9159b44a27549c3ab2c4d2
-size 1325
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace UniStorm.Example
+{
+    public class DisableWeatherByTrigger : MonoBehaviour
+    {
+        public string TriggerTag = "Player";
+        public ControlEffectsEnum ControlEffects;
+        public enum ControlEffectsEnum
+        {
+            Disable,
+            Enable
+        }
+        public ControlSoundsEnum ControlSounds = ControlSoundsEnum.Yes;
+        public enum ControlSoundsEnum
+        {
+            Yes,
+            No
+        }
+
+        void OnTriggerEnter(Collider C)
+        {
+            if (C.tag == TriggerTag && ControlEffects == ControlEffectsEnum.Disable)
+            {
+                UniStormManager.Instance.ChangeWeatherEffectsState(false);
+                if (ControlSounds == ControlSoundsEnum.Yes)
+                {
+                    UniStormManager.Instance.ChangeWeatherSoundsState(false);
+                }
+            }
+            else if (C.tag == TriggerTag && ControlEffects == ControlEffectsEnum.Enable)
+            {
+                UniStormManager.Instance.ChangeWeatherEffectsState(true);
+                if (ControlSounds == ControlSoundsEnum.Yes)
+                {
+                    UniStormManager.Instance.ChangeWeatherSoundsState(true);
+                }
+            }
+        }
+    }
+}

@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:689567059be352caa95134ea4b2b3434e6becf9e04ed08d2b3552300ebef9237
-size 851
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace UniStorm.Utility
+{
+    public class FadeLightEffect : MonoBehaviour
+    {
+        public AnimationCurve LightCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+        public float FadeMultipler = 1;
+        Light LightSource;
+        float Timer;
+
+        void OnEnable()
+        {
+            Timer = 0;
+        }
+
+        void Start()
+        {
+            if (GetComponent<Light>() != null)
+            {
+                LightSource = GetComponent<Light>();
+            }
+            else
+            {
+                GetComponent<FadeLightEffect>().enabled = false;
+            }
+        }
+
+        void Update()
+        {
+            Timer += Time.deltaTime;
+            LightSource.intensity = LightCurve.Evaluate(Timer * FadeMultipler);
+        }
+    }
+}

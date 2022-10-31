@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5b9c49b9136458594d690e23d5c0c971095443b61f84ee4f54c37d42623c55a
-size 251
+fileFormatVersion: 2
+guid: 69c0b60414a808f4eaec4cfd0062d52b
+labels:
+- Ground
+- Nature
+- Pattern
+- Terrain
+- Dry
+- Desert
+- Dried
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

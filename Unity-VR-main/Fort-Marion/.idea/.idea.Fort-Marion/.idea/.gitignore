@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d045110bcad3dd3a0d8259dd192f484013a7b16504c2af075d892349e3989247
-size 280
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/.idea.Fort-Marion.iml
+/contentModel.xml
+/modules.xml
+/projectSettingsUpdater.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

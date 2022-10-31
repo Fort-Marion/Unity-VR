@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:20ee26e5e1ff0a362187e693699aa98fc157159ef21a9db95b6690581bc1e2d6
-size 1259
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.Callbacks;
+
+namespace UniStorm.Utility
+{
+    [InitializeOnLoad]
+    public class UniStormDefines
+    {
+        const string UniStormDefinesString = "UNISTORM_PRESENT";
+
+        static UniStormDefines()
+        {
+            InitializeUniStormDefines();
+        }
+
+        static void InitializeUniStormDefines()
+        {
+            var BTG = EditorUserBuildSettings.selectedBuildTargetGroup;
+            string UniStormDef = PlayerSettings.GetScriptingDefineSymbolsForGroup(BTG);
+
+            if (!UniStormDef.Contains(UniStormDefinesString))
+            {
+                if (string.IsNullOrEmpty(UniStormDef))
+                {
+                    PlayerSettings.SetScriptingDefineSymbolsForGroup(BTG, UniStormDefinesString);
+                }
+                else
+                {
+                    if (UniStormDef[UniStormDef.Length - 1] != ';')
+                    {
+                        UniStormDef += ';';
+                    }
+
+                    UniStormDef += UniStormDefinesString;
+                    PlayerSettings.SetScriptingDefineSymbolsForGroup(BTG, UniStormDef);
+                }
+            }
+        }
+    }
+}

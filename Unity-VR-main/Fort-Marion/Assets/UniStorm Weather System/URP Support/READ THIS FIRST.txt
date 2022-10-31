@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:733bd40a5925508125f71c2a02d7b435bcecf89e3dd26c66bd94c86976857f04
-size 190
+Please follow the UniStorm URP tutorial before importing the URP Support UnityPackage file: https://github.com/Black-Horizon-Studios/UniStorm-Weather-System/wiki/Setting-up-UniStorm-with-URP

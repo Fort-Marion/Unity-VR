@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6acc95c01c3505a0224d89a6f5d72c70ffb44de59e2b92132e4f2c8aa796d667
-size 863
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace UniStorm.Example
+{
+    public class TurnOffLight : MonoBehaviour
+    {
+        Light LightSource;
+
+        void Start()
+        {
+            LightSource = GetComponent<Light>();
+
+            if (UniStormSystem.Instance.CurrentTimeOfDay == UniStormSystem.CurrentTimeOfDayEnum.Night)
+            {
+                LightSource.enabled = true;
+            }
+            else
+            {
+                LightSource.enabled = false;
+            }
+        }
+
+        void Update()
+        {
+            if (UniStormSystem.Instance.CurrentTimeOfDay == UniStormSystem.CurrentTimeOfDayEnum.Night)
+            {
+                LightSource.enabled = true;
+            }
+            else
+            {
+                LightSource.enabled = false;
+            }
+        }
+    }
+}

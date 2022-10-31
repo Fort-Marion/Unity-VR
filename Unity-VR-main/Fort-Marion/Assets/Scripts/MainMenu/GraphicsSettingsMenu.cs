@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:64baccf23408daa3ba4a9dd7ab2ec8a368faf6990376290af6fb6cc525ee3a0d
-size 1058
+using System.Collections;
+using System.Collections.Generic;
+using FortMarion;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GraphicsSettingsMenu : MonoBehaviour
+{
+    [SerializeField] private TMP_Dropdown textureQualityDropdown;
+    void Start()
+    {
+        var textManager = GameManager.Instance.TextManager;
+        textureQualityDropdown.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("graphics_menu_dropdown_texture_quality", "Texture Quality");
+        textureQualityDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
+        {
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_texture_quality_high", "High")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_texture_quality_medium", "Medium")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_texture_quality_low", "Low")),
+        });
+        textureQualityDropdown.value = 0; // TODO Update this to keep track of option state
+    }
+}
