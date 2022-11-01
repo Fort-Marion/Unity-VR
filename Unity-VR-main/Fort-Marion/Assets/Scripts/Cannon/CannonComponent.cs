@@ -15,14 +15,17 @@ namespace FortMarion.Cannon
         [SerializeField] private GameObject explosionEffect;
         [SerializeField] private GameObject barrelEnd;
         [SerializeField] private GameObject loadedCannonball;
+        [SerializeField] private GameObject fireSoundObj;
 
         public bool _isTestRepeat;
         public bool _isRecentShot;
         private static readonly int Rollback = Animator.StringToHash("Rollback");
         private static readonly int Rollforward = Animator.StringToHash("Rollforward");
+        private AudioSource fireSoundSource;
 
         private void Awake()
         {
+            fireSoundSource = fireSoundObj.GetComponent<AudioSource>();
             // Start with a clean cannon with no wadding/sparks.
             Stage = CannonStage.Load_Cartridge;
         }
@@ -53,6 +56,7 @@ namespace FortMarion.Cannon
                 cannonball.GetComponent<Rigidbody>().AddForce(25*armatureBone.up, ForceMode.Impulse);
                 GetComponent<Rigidbody>().AddForce(-200*transform.forward, ForceMode.Impulse);
                 Instantiate(explosionEffect, position, Quaternion.identity);
+                fireSoundSource.Play();
                 animator.SetTrigger(Rollback);
                 yield return new WaitForSeconds(3);
                 animator.SetTrigger(Rollforward);
