@@ -27075,7 +27075,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2147274170}
   - component: {fileID: 2147274169}
-  - component: {fileID: 2147274168}
   m_Layer: 0
   m_Name: AerialCamera
   m_TagString: Untagged
@@ -27083,14 +27082,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2147274168
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147274167}
-  m_Enabled: 1
 --- !u!20 &2147274169
 Camera:
   m_ObjectHideFlags: 0
@@ -27142,7 +27133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2147274167}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 7.3, y: 100.3, z: 3.2}
+  m_LocalPosition: {x: 7.3, y: 114, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
