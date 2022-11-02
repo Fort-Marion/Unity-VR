@@ -6,37 +6,7 @@ ModelImporter:
   - first:
       74: -623603649343465320
     second: Scene
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Black Painted Metal
-    second: {fileID: 2100000, guid: cdb30ba97851ff94fbab31c3a01213c5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Black Painted Metal Wheels
-    second: {fileID: 2100000, guid: eb68b65576c9f624a84d993edc858bd3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal Plates
-    second: {fileID: 2100000, guid: 98d6a83f17246174b953785d691172dd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Scratched Black Iron
-    second: {fileID: 2100000, guid: 0906605bae5d683409581e0c8241e729, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood
-    second: {fileID: 2100000, guid: 7aa601be85916844498e226438759439, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood Wheels
-    second: {fileID: 2100000, guid: aad39a410ce8ade428926a5aae725c10, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
