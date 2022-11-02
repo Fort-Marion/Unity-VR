@@ -16,18 +16,21 @@ namespace FortMarion.Cannon
         [SerializeField] private GameObject barrelEnd;
         [SerializeField] private GameObject loadedCannonball;
         [SerializeField] private GameObject fireSoundObj;
+        [SerializeField] private GameObject indicator;
 
         public bool _isTestRepeat;
         public bool _isRecentShot;
         private static readonly int Rollback = Animator.StringToHash("Rollback");
         private static readonly int Rollforward = Animator.StringToHash("Rollforward");
         private AudioSource fireSoundSource;
+        private GameObject camera;
 
         private void Awake()
         {
             fireSoundSource = fireSoundObj.GetComponent<AudioSource>();
             // Start with a clean cannon with no wadding/sparks.
             Stage = CannonStage.Load_Cartridge;
+            if (Camera.main != null) camera = Camera.main.gameObject;
         }
 
         private void Start()
@@ -66,7 +69,10 @@ namespace FortMarion.Cannon
 
         private void Update()
         {
-        
+            if (camera != null)
+            {
+                indicator.transform.LookAt(camera.transform);
+            }
         }
 
         public void RollIntoPosition()
