@@ -6152,14 +6152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   groundDrag: 4
-  jumpForce: 3
-  jumpCooldown: 0.5
-  airMultiplier: 0.3
-  jumpKey: 32
-  playerHeight: 2
-  Ground:
-    serializedVersion: 2
-    m_Bits: 1024
   orientation: {fileID: 1282314525}
   rb: {fileID: 379561879}
 --- !u!54 &379561879
@@ -7226,11 +7218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 147359129537034828, guid: f2e961b110618724c8d6a350d44312fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.45543
+      value: 9.2
       objectReference: {fileID: 0}
     - target: {fileID: 147359129537034828, guid: f2e961b110618724c8d6a350d44312fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.019262
+      value: -2.62
       objectReference: {fileID: 0}
     - target: {fileID: 147359129537034828, guid: f2e961b110618724c8d6a350d44312fa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7263,6 +7255,10 @@ PrefabInstance:
     - target: {fileID: 147359129537034831, guid: f2e961b110618724c8d6a350d44312fa, type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 147359129537034831, guid: f2e961b110618724c8d6a350d44312fa, type: 3}
+      propertyPath: groundDrag
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2e961b110618724c8d6a350d44312fa, type: 3}
@@ -10499,6 +10495,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3960737652419325401, guid: 0a938339a10e27a4596cde55acb4050b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -3960737652419325401, guid: 0a938339a10e27a4596cde55acb4050b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -10513,6 +10513,10 @@ PrefabInstance:
     - target: {fileID: 1658294922346951443, guid: 0a938339a10e27a4596cde55acb4050b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: 0a938339a10e27a4596cde55acb4050b, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5148817236446094103, guid: 0a938339a10e27a4596cde55acb4050b, type: 3}
       propertyPath: m_IsActive
