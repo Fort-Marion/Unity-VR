@@ -20,20 +20,28 @@ namespace FortMarion
             }
         }
         public TextManager TextManager;
+        public EControllerType ControllerType { get; set; }
 
         private void Awake()
         {
             _instance = this;
+            TextManager = new TextManager();
+            TextManager.LoadGameTexts();
         }
         
         void Start()
         {
-            TextManager = new TextManager();
-            TextManager.LoadGameTexts();
         }
 
         void Update()
         {
+        }
+
+        public enum EControllerType
+        {
+            None,
+            Desktop,
+            VR
         }
     }
 }

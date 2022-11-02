@@ -12,3 +12,4 @@ graphics_menu_texture_quality_high,High
 graphics_menu_texture_quality_medium,Medium
 graphics_menu_texture_quality_low,Low
 audio_menu_slider_mastervolume,Master Volume
+gameplay_menu_toggle_lefthanded,Left-Hand Dominate
