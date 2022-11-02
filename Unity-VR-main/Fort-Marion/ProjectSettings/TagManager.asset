@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - Cannonball_6lb
+  - Cannon_Barrel_Tool
+  - Cannon_Fire_Tool
   layers:
   - Default
   - TransparentFX
