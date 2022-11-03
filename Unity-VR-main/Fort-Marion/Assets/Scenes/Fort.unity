@@ -40091,7 +40091,7 @@ MonoBehaviour:
   UniStormMenuKey: 27
   UniStormCanvas: {fileID: 0}
   m_MenuToggle: 0
-  TabNumber: 2
+  TabNumber: 1
   TimeTabNumbers: 0
   WeatherTabNumbers: 1
   CelestialTabNumbers: 0
@@ -40127,12 +40127,12 @@ MonoBehaviour:
   StartingMinute: 0
   StartingHour: 17
   Minute: 13
-  Hour: 18
+  Hour: 8
   Day: 25
   Month: 6
   Year: 2020
-  DayLength: 12
-  NightLength: 12
+  DayLength: 36
+  NightLength: 4
   TimeOfDayUpdateSeconds: 5
   UseTimeOfDayUpdateControl: 1
   m_TimeFloat: 0
