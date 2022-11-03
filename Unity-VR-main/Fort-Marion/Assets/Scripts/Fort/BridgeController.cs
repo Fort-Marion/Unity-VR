@@ -8,7 +8,7 @@ namespace FortMarion.Fort
     public class BridgeController : MonoBehaviour
     {
         private Animator animator;
-        private static readonly int IsOpen = Animator.StringToHash("isRaised");
+        private static readonly int IsRaised = Animator.StringToHash("isRaised");
 
         private void Start()
         {
@@ -17,8 +17,18 @@ namespace FortMarion.Fort
 
         public void ToggleBridge()
         {
-            var state = animator.GetBool(IsOpen);
-            animator.SetBool(IsOpen, !state);
+            var state = animator.GetBool(IsRaised);
+            animator.SetBool(IsRaised, !state);
+        }
+        
+        public void Open()
+        {
+            animator.SetBool(IsRaised, false);
+        }
+        
+        public void Close()
+        {
+            animator.SetBool(IsRaised, true);
         }
     }
 }
