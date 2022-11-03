@@ -127,19 +127,20 @@ namespace FortMarion.Cannon
                 case CannonStage.Sponge_Sparks:
                     break;
                 case CannonStage.Load_Cartridge:
-                    loadedCannonball.SetActive(false);
+                    loadedCannonball.SetActive(true);
                     break;
                 case CannonStage.Rammer_Push:
                     break;
                 case CannonStage.Powder_Prime:
                     break;
                 case CannonStage.Linstock_Fire:
+                    loadedCannonball.SetActive(false);
                     Fire();
                     break;
             }
             
             Stage = Stage == CannonStage.Linstock_Fire ? CannonStage.Worm_Wadding : Stage + 1;
-            if(Stage == CannonStage.Load_Cartridge || Stage == CannonStage.Powder_Prime) 
+            if(Stage == CannonStage.Powder_Prime) 
                 NextStage();
         }
     }
