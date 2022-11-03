@@ -3,20 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorController : MonoBehaviour
+namespace FortMarion.Fort
 {
-    private Animator animator;
-    private static readonly int IsOpen = Animator.StringToHash("isOpen");
-
-    private void Start()
+    public class DoorController : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
+        private Animator animator;
+        private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
-    public void ToggleDoor()
-    {
-        var state = animator.GetBool(IsOpen);
-        animator.SetBool(IsOpen, !state);
-        
+        private void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        public void ToggleDoor()
+        {
+            var state = animator.GetBool(IsOpen);
+            animator.SetBool(IsOpen, !state);
+
+        }
     }
 }
