@@ -29,7 +29,7 @@ namespace FortMarion.Cannon
         {
             fireSoundSource = fireSoundObj.GetComponent<AudioSource>();
             // Start with a clean cannon with no wadding/sparks.
-            Stage = CannonStage.Load_Cartridge;
+            Stage = CannonStage.Worm_Wadding;
             if (Camera.main != null) camera = Camera.main.gameObject;
         }
 
@@ -98,6 +98,7 @@ namespace FortMarion.Cannon
             loadedCannonball.SetActive(false);
             GetComponent<Rigidbody>().AddForce(-200*transform.forward, ForceMode.Impulse);
             Instantiate(explosionEffect, position, Quaternion.identity);
+            fireSoundSource.Play();
             animator.SetTrigger(Rollback);
         }
 
@@ -138,6 +139,8 @@ namespace FortMarion.Cannon
             }
             
             Stage = Stage == CannonStage.Linstock_Fire ? CannonStage.Worm_Wadding : Stage + 1;
+            if(Stage == CannonStage.Load_Cartridge || Stage == CannonStage.Powder_Prime) 
+                NextStage();
         }
     }
 }
