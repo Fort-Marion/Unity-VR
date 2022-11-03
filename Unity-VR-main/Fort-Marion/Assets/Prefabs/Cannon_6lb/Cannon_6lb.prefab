@@ -1375,7 +1375,7 @@ MonoBehaviour:
   loadedCannonball: {fileID: 3108960265998333517}
   fireSoundObj: {fileID: 3108960266010427866}
   indicator: {fileID: 3108960265142480824}
-  _isTestRepeat: 1
+  _isTestRepeat: 0
   _isRecentShot: 0
 --- !u!114 &3108960265107171903
 MonoBehaviour:
