@@ -16,7 +16,7 @@ namespace FortMarion.Cannon
         [SerializeField] private GameObject barrelEnd;
         [SerializeField] private GameObject loadedCannonball;
         [SerializeField] private GameObject fireSoundObj;
-        [SerializeField] private GameObject indicator;
+        [SerializeField] private GameObject indicatorsGameObject;
 
         public bool _isTestRepeat;
         public bool _isRecentShot;
@@ -24,6 +24,7 @@ namespace FortMarion.Cannon
         private static readonly int Rollforward = Animator.StringToHash("Rollforward");
         private AudioSource fireSoundSource;
         private GameObject camera;
+        
 
         private void Awake()
         {
@@ -37,14 +38,6 @@ namespace FortMarion.Cannon
         {
             if(_isTestRepeat)
                 StartCoroutine(Waiter());
-            // else
-            //     StartCoroutine(DemoDelayFiring());
-        }
-        
-        private IEnumerator DemoDelayFiring()
-        {
-            yield return new WaitForSeconds(3);
-            Fire();
         }
 
         private IEnumerator Waiter()
@@ -71,7 +64,8 @@ namespace FortMarion.Cannon
         {
             if (camera != null)
             {
-                indicator.transform.LookAt(camera.transform);
+                foreach(Transform childTransform in indicatorsGameObject.transform)
+                    childTransform.LookAt(camera.transform);
             }
         }
 
@@ -102,22 +96,21 @@ namespace FortMarion.Cannon
             animator.SetTrigger(Rollback);
         }
 
-        // TODO REMOVE THIS (Demo Only)
-        public void DemoStageAction()
+        private void UpdateIndicatorIcons()
         {
-            switch (Stage)
-            {
-                case CannonStage.Load_Cartridge:
-                    loadedCannonball.SetActive(false);
-                    Stage = CannonStage.Linstock_Fire;
-                    break;
-                case CannonStage.Linstock_Fire:
-                    Fire();
-                    Stage = CannonStage.Load_Cartridge;
-                    break;
-            }
+            // Get transforms
+            var arrowTransform = indicatorsGameObject.transform.GetChild(0);
+            var activeToolTransform = indicatorsGameObject.transform.GetChild(Stage == CannonStage.Worm_Wadding ? (int) CannonStage.Linstock_Fire : (int) Stage - 1);
+            var nextToolTransform = indicatorsGameObject.transform.GetChild((int) Stage);
+            var offset = activeToolTransform.localPosition.y - arrowTransform.localPosition.y;
+            
+            // Update active tool and arrow position if needed.
+            activeToolTransform.gameObject.SetActive(false);
+            nextToolTransform.gameObject.SetActive(true);
+            var localPosition = nextToolTransform.localPosition;
+            arrowTransform.localPosition = new Vector3(localPosition.x, localPosition.y - offset, localPosition.z);
         }
-
+        
         public void NextStage()
         {
             switch (Stage)
@@ -131,17 +124,13 @@ namespace FortMarion.Cannon
                     break;
                 case CannonStage.Rammer_Push:
                     break;
-                case CannonStage.Powder_Prime:
-                    break;
                 case CannonStage.Linstock_Fire:
                     loadedCannonball.SetActive(false);
                     Fire();
                     break;
             }
-            
             Stage = Stage == CannonStage.Linstock_Fire ? CannonStage.Worm_Wadding : Stage + 1;
-            if(Stage == CannonStage.Powder_Prime) 
-                NextStage();
+            UpdateIndicatorIcons();
         }
     }
 }
