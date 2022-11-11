@@ -7,7 +7,6 @@ namespace FortMarion.Cannon
         Sponge_Sparks = 2,
         Load_Cartridge = 3,
         Rammer_Push = 4,
-        Powder_Prime = 5,
-        Linstock_Fire = 6,
+        Linstock_Fire = 5,
     }
 }
