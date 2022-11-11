@@ -2638,7 +2638,7 @@ GameObject:
   - component: {fileID: 1549112285}
   m_Layer: 0
   m_Name: Cannonball
-  m_TagString: Cannonball
+  m_TagString: Cannonball_6lb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4945,6 +4945,10 @@ PrefabInstance:
     - target: {fileID: 3108960265107172032, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
       propertyPath: m_Center.z
       value: 0.09864956
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108960265107172033, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
+      propertyPath: _isTestRepeat
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3108960266030177033, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
       propertyPath: m_Name
