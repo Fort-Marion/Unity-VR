@@ -17,6 +17,7 @@ namespace FortMarion.Cannon
         [SerializeField] private GameObject loadedCannonball;
         [SerializeField] private GameObject fireSoundObj;
         [SerializeField] private GameObject indicatorsGameObject;
+        [SerializeField] private GameObject blocksGameObject;
 
         public bool _isTestRepeat;
         public bool _isRecentShot;
@@ -24,6 +25,7 @@ namespace FortMarion.Cannon
         private static readonly int Rollforward = Animator.StringToHash("Rollforward");
         private AudioSource fireSoundSource;
         private GameObject camera;
+        private byte pitch;
         
 
         private void Awake()
@@ -109,6 +111,37 @@ namespace FortMarion.Cannon
             nextToolTransform.gameObject.SetActive(true);
             var localPosition = nextToolTransform.localPosition;
             arrowTransform.localPosition = new Vector3(localPosition.x, localPosition.y - offset, localPosition.z);
+        }
+
+        public void ChangePitch()
+        {
+            Vector3 rot = new Vector3(0,0,0);
+            var block0 = blocksGameObject.transform.GetChild(0).gameObject;
+            var block1 = blocksGameObject.transform.GetChild(1).gameObject;
+            switch (pitch)
+            {
+                case 0:
+                    rot.x = 175.2f;
+                    armatureBone.localEulerAngles = rot;
+                    block0.SetActive(true);
+                    block1.SetActive(false);
+                    pitch++;
+                    break;
+                case 1:
+                    rot.x = 178.7f;
+                    armatureBone.localEulerAngles = rot;
+                    block0.SetActive(true);
+                    block1.SetActive(true);
+                    pitch++;
+                    break;
+                case 2:
+                    rot.x = 172.0f;
+                    armatureBone.localEulerAngles = rot;
+                    block0.SetActive(false);
+                    block1.SetActive(false);
+                    pitch = 0;
+                    break;
+            }
         }
         
         public void NextStage()
