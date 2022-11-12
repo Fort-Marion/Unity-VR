@@ -2515,6 +2515,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1477818874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7863715675601220431, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
+  m_PrefabInstance: {fileID: 3108960266692611136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1483261611 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3108960265998333519, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
@@ -4995,7 +5000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3108960265998333517, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3108960266030177033, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
       propertyPath: m_Name
@@ -5109,6 +5114,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.95799994
       objectReference: {fileID: 0}
+    - target: {fileID: 8269222218720741964, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
+      propertyPath: _isTestRepeat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269222218720741964, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
+      propertyPath: blocksGameObject
+      value: 
+      objectReference: {fileID: 1477818874}
     - target: {fileID: 8552605213210633026, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
       propertyPath: m_IsActive
       value: 0
