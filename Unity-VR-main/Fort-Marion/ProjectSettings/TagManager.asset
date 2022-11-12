@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Fire
-  - Cannon_Barrel_Tool
-  - Cannon_Fire_Tool
-  - Cannonball
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,7 +13,7 @@ TagManager:
   - UI
   - Spawner
   - Key
-  - Audio
+  - 
   - 
   - Ground
   - 
@@ -37,10 +33,10 @@ TagManager:
   - 
   - 
   - 
-  - HandPlayer
-  - Hand
-  - Grabbable
-  - Grabbing
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
