@@ -4930,6 +4930,10 @@ PrefabInstance:
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3108960265998333517, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3108960266030177033, guid: aefe8f9065ff02c4da5355b7720917aa, type: 3}
       propertyPath: m_Name
       value: Cannon_6lb
