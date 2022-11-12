@@ -16,6 +16,6 @@ public class CannonFireTrigger : MonoBehaviour
     {
         if (!other.TryGetComponent<CannonTool>(out var cannonTool)) return;
         if(cannonTool.ToolType == CannonTool.CannonToolType.Linstock && cannonComponent.Stage == CannonStage.Linstock_Fire)
-            cannonComponent.Fire();
+            cannonComponent.NextStage(); // Next Stage handles firing
     }
 }
