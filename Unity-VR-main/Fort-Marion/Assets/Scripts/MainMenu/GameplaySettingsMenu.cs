@@ -8,8 +8,12 @@ using UnityEngine.UI;
 public class GameplaySettingsMenu : MonoBehaviour
 {
     [SerializeField] private Toggle leftHandedToggle;
+    
+    private Dictionary<string, object> settings;
+    
     void Start()
     {
+        settings = GetComponentInParent<SettingsMenuManager>().Settings;
         var textManager = GameManager.Instance.TextManager;
         leftHandedToggle.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("gameplay_menu_toggle_lefthanded", "Left-Hand Dominate");
     }

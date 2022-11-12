@@ -7,17 +7,27 @@ using UnityEngine.UI;
 
 public class GraphicsSettingsMenu : MonoBehaviour
 {
-    [SerializeField] private TMP_Dropdown textureQualityDropdown;
+    [SerializeField] private TMP_Dropdown graphicsQualityDropdown;
+    
+    private Dictionary<string, object> settings;
+    
     void Start()
     {
+        settings = GetComponentInParent<SettingsMenuManager>().Settings;
         var textManager = GameManager.Instance.TextManager;
-        textureQualityDropdown.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("graphics_menu_dropdown_texture_quality", "Texture Quality");
-        textureQualityDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
+        graphicsQualityDropdown.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("graphics_menu_dropdown_graphics_quality", "Graphics Quality");
+        graphicsQualityDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
         {
-            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_texture_quality_high", "High")),
-            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_texture_quality_medium", "Medium")),
-            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_texture_quality_low", "Low")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_ultra", "Ultra")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_high", "High")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_medium", "Medium")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_low", "Low")),
         });
-        textureQualityDropdown.value = 0; // TODO Update this to keep track of option state
+        graphicsQualityDropdown.value = (int) settings["GraphicsQuality"];
+    }
+
+    public void GraphicsQualityDropdown_Updated(int val)
+    {
+        settings["GraphicsQuality"] = val;
     }
 }

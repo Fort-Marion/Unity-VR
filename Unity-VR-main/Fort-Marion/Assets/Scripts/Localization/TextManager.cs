@@ -42,7 +42,7 @@ namespace FortMarion.Localization
         public void LoadGameTexts()
         {
             Debug.Log(Application.dataPath);
-            _gameTexts = File.ReadLines(Path.Combine(Application.dataPath, $"Localization/strings.{Locale}.csv"))
+            _gameTexts = File.ReadLines(Path.Combine(Application.streamingAssetsPath, $"Localization/strings.{Locale}.csv"))
                 .Select(line => line.Split(',')).ToDictionary(line => line[0], line=> line[1]);
         }
     }
