@@ -48,7 +48,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: cannon_6lb_final/Indicators
+    path: cannon_6lb_final/Armature/Bone/Indicators_Anim/Indicators
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -60,7 +60,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1781966692
+      path: 2549406873
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -122,7 +122,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: cannon_6lb_final/Indicators
+    path: cannon_6lb_final/Armature/Bone/Indicators_Anim/Indicators
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -159,7 +159,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: cannon_6lb_final/Indicators
+    path: cannon_6lb_final/Armature/Bone/Indicators_Anim/Indicators
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -196,7 +196,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: cannon_6lb_final/Indicators
+    path: cannon_6lb_final/Armature/Bone/Indicators_Anim/Indicators
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []

@@ -18,11 +18,13 @@ namespace FortMarion.Cannon
         [SerializeField] private GameObject fireSoundObj;
         [SerializeField] private GameObject indicatorsGameObject;
         [SerializeField] private GameObject blocksGameObject;
+        [SerializeField] private GameObject pushTriggerBack;
+        [SerializeField] private GameObject pushTriggerFront;
 
         public bool _isTestRepeat;
-        public bool _isRecentShot;
         private static readonly int Rollback = Animator.StringToHash("Rollback");
         private static readonly int Rollforward = Animator.StringToHash("Rollforward");
+        private static readonly int RollbackPush = Animator.StringToHash("Rollback_Push");
         private AudioSource fireSoundSource;
         private GameObject camera;
         private byte pitch;
@@ -32,7 +34,7 @@ namespace FortMarion.Cannon
         {
             fireSoundSource = fireSoundObj.GetComponent<AudioSource>();
             // Start with a clean cannon with no wadding/sparks.
-            Stage = CannonStage.Worm_Wadding;
+            Stage = CannonStage.Initial;
             if (Camera.main != null) camera = Camera.main.gameObject;
         }
 
@@ -47,7 +49,6 @@ namespace FortMarion.Cannon
             while (true)
             {
                 yield return new WaitForSeconds(3);
-                _isRecentShot = true;
                 var position = barrelEnd.transform.position;
                 var animator = GetComponent<Animator>();
                 var cannonball = Instantiate(cannonballPrefab, position, Quaternion.identity);
@@ -58,7 +59,6 @@ namespace FortMarion.Cannon
                 animator.SetTrigger(Rollback);
                 yield return new WaitForSeconds(3);
                 animator.SetTrigger(Rollforward);
-                _isRecentShot = false; 
             }
         }
 
@@ -71,11 +71,19 @@ namespace FortMarion.Cannon
             }
         }
 
-        public void RollIntoPosition()
+        public void RollForward()
         {
             var animator = GetComponent<Animator>();
             animator.SetTrigger(Rollforward);
-            _isRecentShot = false; 
+            pushTriggerBack.SetActive(false);
+        }
+        
+        public void RollBackwardsPush()
+        {
+            var animator = GetComponent<Animator>();
+            animator.SetTrigger(RollbackPush);
+            pushTriggerFront.SetActive(false);
+            NextStage();
         }
 
         public void TryFire()
@@ -86,7 +94,6 @@ namespace FortMarion.Cannon
 
         public void Fire()
         {
-            _isRecentShot = true;
             var position = barrelEnd.transform.position;
             var animator = GetComponent<Animator>();
             var cannonball = Instantiate(cannonballPrefab, position, Quaternion.identity);
@@ -98,17 +105,20 @@ namespace FortMarion.Cannon
             animator.SetTrigger(Rollback);
         }
 
-        private void UpdateIndicatorIcons()
+        private void UpdateIndicatorIcons(bool initial = false)
         {
             // Get transforms
             var arrowTransform = indicatorsGameObject.transform.GetChild(0);
             var activeToolTransform = indicatorsGameObject.transform.GetChild(Stage == CannonStage.Worm_Wadding ? (int) CannonStage.Linstock_Fire : (int) Stage - 1);
+            
             var nextToolTransform = indicatorsGameObject.transform.GetChild((int) Stage);
             var offset = activeToolTransform.localPosition.y - arrowTransform.localPosition.y;
             
             // Update active tool and arrow position if needed.
             activeToolTransform.gameObject.SetActive(false);
             nextToolTransform.gameObject.SetActive(true);
+
+            if (initial) return;
             var localPosition = nextToolTransform.localPosition;
             arrowTransform.localPosition = new Vector3(localPosition.x, localPosition.y - offset, localPosition.z);
         }
@@ -148,6 +158,11 @@ namespace FortMarion.Cannon
         {
             switch (Stage)
             {
+                case CannonStage.Initial:
+                    indicatorsGameObject.SetActive(true);
+                    Stage = CannonStage.Worm_Wadding;
+                    UpdateIndicatorIcons(true);
+                    return;
                 case CannonStage.Worm_Wadding:
                     break;
                 case CannonStage.Sponge_Sparks:
@@ -156,6 +171,12 @@ namespace FortMarion.Cannon
                     loadedCannonball.SetActive(true);
                     break;
                 case CannonStage.Rammer_Push:
+                    pushTriggerBack.SetActive(true);
+                    indicatorsGameObject.SetActive(false);
+                    break;
+                case CannonStage.Roll_Into_Position:
+                    RollForward();
+                    indicatorsGameObject.SetActive(true);
                     break;
                 case CannonStage.Linstock_Fire:
                     loadedCannonball.SetActive(false);
