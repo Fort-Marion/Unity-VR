@@ -40,7 +40,8 @@ public class SettingsMenuManager : MonoBehaviour
         Settings = new Dictionary<string, object>
         {
             { "MasterVolume", PlayerPrefs.HasKey("MasterVolume") ? PlayerPrefs.GetFloat("MasterVolume") : 100f },
-            { "GraphicsQuality", PlayerPrefs.HasKey("GraphicsQuality") ? PlayerPrefs.GetInt("GraphicsQuality") : 0 }
+            { "GraphicsQuality", PlayerPrefs.HasKey("GraphicsQuality") ? PlayerPrefs.GetInt("GraphicsQuality") : 0 },
+            { "Subtitles", PlayerPrefs.HasKey("Subtitles") ? PlayerPrefs.GetInt("SubTitles") : 0 }
         };
     }
 

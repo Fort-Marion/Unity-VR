@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameplaySettingsMenu : MonoBehaviour
 {
-    [SerializeField] private Toggle leftHandedToggle;
+    [SerializeField] private Toggle subtitlesToggle;
     
     private Dictionary<string, object> settings;
     
@@ -15,11 +15,13 @@ public class GameplaySettingsMenu : MonoBehaviour
     {
         settings = GetComponentInParent<SettingsMenuManager>().Settings;
         var textManager = GameManager.Instance.TextManager;
-        leftHandedToggle.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("gameplay_menu_toggle_lefthanded", "Left-Hand Dominate");
+        subtitlesToggle.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("gameplay_menu_toggle_subtitles", "Subtitles");
+
+        subtitlesToggle.isOn = (int) settings["Subtitles"] == 1;
     }
     
-    public void LeftHandedToggle_Updated(bool val)
+    public void SubtitlesToggle_Updated(bool val)
     {
-        // TODO implement this
+        settings["Subtitles"] = val ? 1 : 0;
     }
 }

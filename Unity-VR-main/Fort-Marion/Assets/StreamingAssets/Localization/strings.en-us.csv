@@ -1,7 +1,8 @@
 main_menu_btn_start,Explore<br>Fort
-main_menu_btn_tour,Tour<br>Fort
+main_menu_btn_viewmap,View<br>Map
 main_menu_btn_settings,Settings
 main_menu_btn_exit,Quit
+ mapview_menu_btn_back,Back
 settings_menu_btn_graphics,Graphics
 settings_menu_btn_audio,Audio
 settings_menu_btn_gameplay,Gameplay
@@ -13,4 +14,4 @@ graphics_menu_texture_quality_high,High
 graphics_menu_texture_quality_medium,Medium
 graphics_menu_texture_quality_low,Low
 audio_menu_slider_mastervolume,Master Volume
-gameplay_menu_toggle_lefthanded,Left-Hand Dominate
+gameplay_menu_toggle_subtitles,Subtitles

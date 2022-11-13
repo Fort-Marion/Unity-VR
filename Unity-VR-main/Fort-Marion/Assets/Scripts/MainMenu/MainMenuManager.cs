@@ -9,14 +9,14 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private Button exploreButton;
-    [SerializeField] private Button tourButton;
+    [SerializeField] private Button viewMapButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
     void Start()
     {
         var textManager = GameManager.Instance.TextManager;
         exploreButton.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("main_menu_btn_start", "Explore Fort");
-        tourButton.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("main_menu_btn_tour", "Tour Fort");
+        viewMapButton.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("main_menu_btn_viewmap", "View Map");
         settingsButton.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("main_menu_btn_settings", "Settings");
         exitButton.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("main_menu_btn_exit", "Quit");
     }
