@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3070190450087035145, guid: 6e0d15665df96964d84f19e0dadbb456, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4240624612822999647, guid: 6e0d15665df96964d84f19e0dadbb456, type: 3}
       propertyPath: m_Enabled
@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6262645221131313226, guid: 6e0d15665df96964d84f19e0dadbb456, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6943602837689157621, guid: 6e0d15665df96964d84f19e0dadbb456, type: 3}
       propertyPath: m_CollisionDetection
@@ -355,7 +355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3858420640544145269, guid: a5548ca1775724f469bb0f7d0b172851, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3924344421367967455, guid: a5548ca1775724f469bb0f7d0b172851, type: 3}
       propertyPath: m_CollisionDetection
@@ -419,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7160839223890361127, guid: a5548ca1775724f469bb0f7d0b172851, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5548ca1775724f469bb0f7d0b172851, type: 3}
@@ -680,7 +680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 528876218009421643, guid: b65453cb85274ec41bdf921bf491ed29, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 896662181956110676, guid: b65453cb85274ec41bdf921bf491ed29, type: 3}
       propertyPath: m_Name
@@ -688,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896662181956110676, guid: b65453cb85274ec41bdf921bf491ed29, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4345598182347312496, guid: b65453cb85274ec41bdf921bf491ed29, type: 3}
       propertyPath: m_CollisionDetection
@@ -925,11 +925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2334800612313961266, guid: 864011fb17226164bb6e8bb177043ac0, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3225194088992780280, guid: 864011fb17226164bb6e8bb177043ac0, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 864011fb17226164bb6e8bb177043ac0, type: 3}
