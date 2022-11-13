@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CannonPushTrigger : MonoBehaviour
 {
+    
+    [SerializeField] private bool isFront;
     private CannonComponent cannonComponent;
 
     private void Awake()
@@ -16,7 +18,9 @@ public class CannonPushTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag($"Player")) return;
-        if(cannonComponent._isRecentShot)
-            cannonComponent.RollIntoPosition();
+        if(isFront && cannonComponent.Stage == CannonStage.Initial)
+            cannonComponent.RollBackwardsPush();
+        else if(cannonComponent.Stage == CannonStage.Roll_Into_Position)
+            cannonComponent.NextStage(); // will roll forward
     }
 }

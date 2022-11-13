@@ -16,7 +16,7 @@ public class CannonBarrelTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Cannonball")) return;
-        if (cannonComponent._isRecentShot || cannonComponent.Stage != CannonStage.Load_Cartridge) return; 
+        if (cannonComponent.Stage != CannonStage.Load_Cartridge) return; 
         other.gameObject.SetActive(false);
         LoadCartridge();
 
