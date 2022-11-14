@@ -10,13 +10,14 @@ namespace FortMarion.MainMenu
         [SerializeField] private float spawnHeight = 0;
         
 
-        private GameObject activeMenu;
+        private bool isActiveMenu;
 
         public void ToggleMenu()
         {
-            if (activeMenu != null)
+            if (isActiveMenu)
             {
                 menuGameObject.transform.position = new Vector3(0, -100, 0);
+                isActiveMenu = false;
                 return;
             }
             Vector3 playerPos = player.transform.position;
@@ -28,6 +29,7 @@ namespace FortMarion.MainMenu
 
             menuGameObject.transform.position = spawnPos;
             menuGameObject.transform.rotation = playerRotation;
+            isActiveMenu = true;
         }
     }
 }
