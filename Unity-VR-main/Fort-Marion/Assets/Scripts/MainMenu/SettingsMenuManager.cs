@@ -41,7 +41,7 @@ public class SettingsMenuManager : MonoBehaviour
         {
             { "MasterVolume", PlayerPrefs.HasKey("MasterVolume") ? PlayerPrefs.GetFloat("MasterVolume") : 100f },
             { "GraphicsQuality", PlayerPrefs.HasKey("GraphicsQuality") ? PlayerPrefs.GetInt("GraphicsQuality") : 0 },
-            { "Subtitles", PlayerPrefs.HasKey("Subtitles") ? PlayerPrefs.GetInt("SubTitles") : 0 }
+            { "Subtitles", PlayerPrefs.HasKey("Subtitles") ? PlayerPrefs.GetInt("Subtitles") : 0 }
         };
     }
 

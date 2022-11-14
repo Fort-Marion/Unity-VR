@@ -18,16 +18,16 @@ public class GraphicsSettingsMenu : MonoBehaviour
         graphicsQualityDropdown.GetComponentInChildren<TextMeshProUGUI>().text = textManager.GetTextOrDefault("graphics_menu_dropdown_graphics_quality", "Graphics Quality");
         graphicsQualityDropdown.AddOptions(new List<TMP_Dropdown.OptionData>()
         {
-            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_ultra", "Ultra")),
-            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_high", "High")),
-            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_medium", "Medium")),
             new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_low", "Low")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_medium", "Medium")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_high", "High")),
+            new TMP_Dropdown.OptionData(textManager.GetTextOrDefault("graphics_menu_graphics_quality_ultra", "Ultra"))
         });
         graphicsQualityDropdown.value = (int) settings["GraphicsQuality"];
     }
 
     public void GraphicsQualityDropdown_Updated(int val)
     {
-        settings["GraphicsQuality"] = val;
+        settings["GraphicsQuality"] = val + 2;
     }
 }
