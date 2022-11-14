@@ -5,8 +5,7 @@ namespace FortMarion.MainMenu
     public class GameMenuToggler : MonoBehaviour
     {
         [SerializeField] private GameObject player;
-        [SerializeField] private GameObject camera;
-        [SerializeField] private GameObject MenuGameObject;
+        [SerializeField] private GameObject menuGameObject;
         [SerializeField] private float spawnDistance = 10;
         [SerializeField] private float spawnHeight = 0;
         
@@ -17,7 +16,7 @@ namespace FortMarion.MainMenu
         {
             if (activeMenu != null)
             {
-                Destroy(activeMenu);
+                menuGameObject.transform.position = new Vector3(0, -100, 0);
                 return;
             }
             Vector3 playerPos = player.transform.position;
@@ -26,9 +25,9 @@ namespace FortMarion.MainMenu
             Quaternion playerRotation = player.transform.rotation;
  
             Vector3 spawnPos = playerPos + playerDirection*spawnDistance + heightOffset;
- 
-            activeMenu = Instantiate(MenuGameObject, spawnPos, playerRotation );
-            activeMenu.GetComponent<Canvas>().worldCamera = camera.GetComponent<Camera>();
+
+            menuGameObject.transform.position = spawnPos;
+            menuGameObject.transform.rotation = playerRotation;
         }
     }
 }
