@@ -86,7 +86,7 @@ public class SettingsMenuManager : MonoBehaviour
     private void ApplySettings()
     {
         AudioListener.volume = PlayerPrefs.HasKey("MasterVolume") ? PlayerPrefs.GetFloat("MasterVolume") : 100f;
-        QualitySettings.SetQualityLevel(PlayerPrefs.HasKey("GraphicsQuality") ? PlayerPrefs.GetInt("GraphicsQuality") : 0);
+        QualitySettings.SetQualityLevel(PlayerPrefs.HasKey("GraphicsQuality") ? PlayerPrefs.GetInt("GraphicsQuality") : 0, true);
     }
 
 }
